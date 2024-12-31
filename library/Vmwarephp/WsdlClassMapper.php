@@ -68,8 +68,7 @@ class WsdlClassMapper {
 	private function cacheClassMap($classMap) {
 		if (!$this->useClassMapCaching) return;
 		if (!file_put_contents($this->getClassMapCacheFile(), serialize($classMap))) {
-			throw new \Exception('\\Vmwarephp\\WsdlClassMapper is configured to cache the class map but was not able to. Check the permissions on the cache directory.');
-		}
+			throw new \Exception('\\Vmwarephp\\WsdlClassMapper is configured to cache the class map ('.$this->getClassMapCacheFile().') but was not able to. Check the permissions on the cache directory.');		}
 	}
 
 	private function getClassMapCacheFile() {
