@@ -22400,6 +22400,7 @@
                <element name="needSecondaryReason" type="xsd:string" minOccurs="0" />
                <element name="minRequiredEVCModeKey" type="xsd:string" minOccurs="0" />
                <element name="consolidationNeeded" type="xsd:boolean" minOccurs="0" />
+               <element name="instantCloneFrozen" type="xsd:boolean" minOccurs="0" />
             </sequence>
          </extension>
       </complexContent>
