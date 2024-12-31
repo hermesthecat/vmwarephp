@@ -8,6 +8,9 @@ class WsdlClassMapper {
 
 	function __construct($classDefinitionsFilePath = null) {
 		$this->classDefinitionsFilePath = $classDefinitionsFilePath ? : dirname(__FILE__) . '/TypeDefinitions.inc';
+		    if (ini_get('soap.wsdl_cache_ttl')==0) {
+      $this->useClassMapCaching = false;
+    }
 	}
 
 	function getClassMap() {
@@ -71,7 +74,11 @@ class WsdlClassMapper {
 
 	private function getClassMapCacheFile() {
 		if (!$this->classMapCacheFile) {
-			$this->classMapCacheFile = __DIR__ . '/' . '.wsdl_class_map.cache';
+			      if (ini_get('soap.wsdl_cache_dir')!=null) {
+        $this->classMapCacheFile = ini_get('soap.wsdl_cache_dir').'/.wsdl_class_map.cache';
+      } else {
+        $this->classMapCacheFile = __DIR__ . '/' . '.wsdl_class_map.cache';
+      }
 		}
 		return $this->classMapCacheFile;
 	}
