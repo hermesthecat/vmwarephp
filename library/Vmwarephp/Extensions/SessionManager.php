@@ -47,8 +47,11 @@ class SessionManager extends \Vmwarephp\ManagedObject {
 
 	private function getCloneTicketFile() {
 		if (!$this->cloneTicketFile) {
-			$this->cloneTicketFile = __DIR__ . '/../.clone_ticket.cache';
-		}
+      if (ini_get('soap.wsdl_cache_dir')!='') {
+        $this->cloneTicketFile = ini_get('soap.wsdl_cache_dir').'/.clone_ticket.cache';
+      } else {
+        $this->cloneTicketFile = __DIR__ . '/../.clone_ticket.cache';
+      }		}
 		return $this->cloneTicketFile;
 	}
 }
