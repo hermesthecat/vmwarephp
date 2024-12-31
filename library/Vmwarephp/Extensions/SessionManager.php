@@ -35,7 +35,7 @@ class SessionManager extends \Vmwarephp\ManagedObject {
 
 	private function saveCloneTicket($cloneTicket) {
 		if (!file_put_contents($this->getCloneTicketFile(), $cloneTicket))
-			throw new \Exception(sprintf('There was an error writing to the clone ticket path. Check the permissions of the cache directory(%s)', __DIR__ . '/../'));
+			throw new \Exception(sprintf('There was an error writing to the clone ticket path. Check the permissions of the cache directory(%s)', $this->getCloneTicketFile()));
 	}
 
 	private function readCloneTicket() {
