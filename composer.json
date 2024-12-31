@@ -20,8 +20,11 @@
 		"mockery/mockery":"^1.4.4"
 	},
 	"autoload": {
-		"psr-0": { "Vmwarephp": "library" }
-		"files": ["Bootstrap.php"]
+		"psr-0": { "Vmwarephp": "library" },
+		"files": ["Bootstrap.php"],
+		"classmap": [
+        	    "library/Vmwarephp"
+	        ]
 	},
 	"repositories": [
 		{
